@@ -7,8 +7,13 @@ use App\Models\Genre;
 
 class GenreController extends Controller
 {
-    public function index() {
-        $genres = Genre::getAll();
-        return view('genre', ['genres' => $genres]);
+    public function index()
+    {
+        $genres = Genre::All();
+        return response()->json([
+            "success" => true,
+            "message" => "Get All Resources",
+            "data" => $genres
+        ], 200);
     }
 }

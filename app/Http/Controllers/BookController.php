@@ -9,9 +9,11 @@ class BookController extends Controller
 {
     public function index()
     {
-        $data = new Book();
-        $books = $data->getBooks();
-
-        return view('book', ['books' => $books]);
+        $books = Book::all(); // ambil semua data dari tabel books
+        return response()->json([
+            "success" => true,
+            "message" => "Get All Resources",
+            "data" => $books
+        ], 200);
     }
 }

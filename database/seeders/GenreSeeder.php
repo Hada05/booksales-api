@@ -8,25 +8,19 @@ use App\Models\Genre;
 
 class GenreSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-public function run(): void
-{
-    Genre::create([
-        'name' => 'Action',
-        'description' => 'Genre yang menekankan pada adegan aksi, pertempuran, dan kecepatan.'
-    ]);
+    public function run(): void
+    {
+        $genres = [
+            ['name' => 'Fantasy', 'description' => 'Stories with magical or supernatural elements.'],
+            ['name' => 'Mystery', 'description' => 'Suspenseful stories involving crime or puzzles.'],
+            ['name' => 'Adventure', 'description' => 'Stories filled with excitement and exploration.'],
+            ['name' => 'Romance', 'description' => 'Love-centered stories.'],
+            ['name' => 'Fiction', 'description' => 'Invented stories based on imagination.'],
+        ];
 
-    Genre::create([
-        'name' => 'Romance',
-        'description' => 'Genre yang menekankan pada hubungan romantis dan cinta.'
-    ]);
-
-    Genre::create([
-        'name' => 'Fantasy',
-        'description' => 'Genre yang mengeksplorasi imajinasi dan dunia yang tidak nyata.'
-    ]);
-}
+        foreach ($genres as $genre) {
+            Genre::create($genre);
+        }
+    }
 
 }

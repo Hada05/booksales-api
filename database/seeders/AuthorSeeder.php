@@ -9,10 +9,16 @@ class AuthorSeeder extends Seeder
 {
     public function run(): void
     {
-        Author::create(['name' => 'J.K. Rowling', 'bio' => 'Penulis seri Harry Potter.']);
-        Author::create(['name' => 'George R.R. Martin', 'bio' => 'Penulis A Song of Ice and Fire.']);
-        Author::create(['name' => 'Haruki Murakami', 'bio' => 'Penulis novel Jepang terkenal.']);
-        Author::create(['name' => 'Agatha Christie', 'bio' => 'Ratu misteri dari Inggris.']);
-        Author::create(['name' => 'Rick Riordan', 'bio' => 'Penulis seri Percy Jackson.']);
+        $authors = [
+            ['name' => 'J.K. Rowling', 'photo' => 'jk_rowling.jpg', 'bio' => 'British author of the Harry Potter series.'],
+            ['name' => 'George R.R. Martin', 'photo' => 'grr_martin.jpg', 'bio' => 'American novelist and short story writer.'],
+            ['name' => 'Haruki Murakami', 'photo' => 'murakami.jpg', 'bio' => 'Japanese writer known for surrealistic novels.'],
+            ['name' => 'Agatha Christie', 'photo' => 'agatha.jpg', 'bio' => 'Queen of mystery novels.'],
+            ['name' => 'Rick Riordan', 'photo' => 'rick.jpg', 'bio' => 'American author of Percy Jackson series.'],
+        ];
+
+        foreach ($authors as $author) {
+            Author::create($author);
+        }
     }
 }

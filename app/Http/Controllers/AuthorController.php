@@ -7,8 +7,13 @@ use App\Models\Author;
 
 class AuthorController extends Controller
 {
-        public function index() {
-        $authors = Author::getAll();
-        return view('author', ['authors' => $authors]);
+    public function index()
+    {
+        $authors = Author::All();
+        return response()->json([
+            "success" => true,
+            "message" => "Get All Resources",
+            "data" => $authors
+        ], 200);
     }
 }
